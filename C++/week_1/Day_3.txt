@@ -1,0 +1,70 @@
+#this is incomplete document, complete it.
+
+VARIABLES AND CONSTANTS
+
+A variable is a place to store information.
+
+Setting Aside Memory: Whe we define a variable, we must tell compiler what kind
+of variable it is: an integer, a character ... . This information tells the compiler
+how much room to set aside and what kind of value you want to store.
+
+Size of Integers: An interger might be two byters on one machine, 4 on another machine.
+
+Signed and Unsigned: sometimes you need negative numbers. 
+
+Fundamental variable types:
+    unsigned short int  : 2 bytes 
+    short int           : 2 bytes
+    unsigned long int   : 4 bytes
+    long int            : 4 bytes
+    int                 : 2 bytes
+    int                 : 2 bytes
+    char                : 1 byte 
+    float               : 4 bytes
+    double              : 8 bytes
+
+C++ is case sensitive.
+
+Many programmer prefer to use all lowercase letter for their variable names.
+If name requires two words, there are two popular conventions: my_car, myCar.
+
+typedef: C++ enables you to create an alias for this phrase by using the keyword
+'typedef', which stands for type definition.
+
+$ typedef unsigned short int USHORT
+
+Wrapping around an unsigned Integer: When an unsigned integer reaches its maximum
+value, it wraps around and start over.
+
+Wrapping around a signed Integer: When you run out of positive numbers, you run
+right into the largest negative numbers and then count back down to 0.
+
+CHARACTERS: computers do not know about letters, punctuation, or sentenses. all
+they understand are numbers. 
+
+In the ASCII code, the lowecase letter "a" is assigned the value 97.
+
+Special Printing Characters 
+
+\n      new line
+\t      tab
+\b      backspace
+\"      double quote
+\'      single quote
+\?      question mark
+\\      backslash
+
+CONSTANTS 
+
+Literal constants: is a value typed directly into your program wherever it is 
+needed. "int myAge = 39;"
+
+Symbolic Constants: A Symbolic constant is a constant that is represented by a name.
+
+Enumerated Constants: enable you to create new types and then to define variables of
+those types whose values are restricted to a set of possible values.
+
+"enum COLOR {RED, BLUE, GREEN, WHITE, BLACK}"
+or
+"enum COLOR {RED=100, BLUR, GREEN=500,WHITE,BLACK=700}"
+

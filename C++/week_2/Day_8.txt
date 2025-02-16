@@ -1,0 +1,4 @@
+POINTERS
+A pointer is a variable that holds a memory address.
+Each variable is located at a unique location in memory, known as its address.
+

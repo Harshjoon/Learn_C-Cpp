@@ -1,0 +1,169 @@
+BASIC CLASSES 
+You make a new type by declaring a class. A class is just a collection of 
+variables--often of different types -- combined with a set of related functions.
+
+Encapsulating everything you know about a car into one class has a number of 
+advantages. Everything in one place, which makes it easy to refer to copy, and 
+manipulate the data. 
+A class consists of any combination of the variable types and also other class types.
+The variables in the class are referred to as the member variables or data members.
+
+Member variables, also known as data members, are the variables in your class. Member variables 
+are part of your class.
+
+The functions in the class typically manipulate the member variable. They are referred
+to as member functions or methods of the class. 
+
+Member functions, also known as methods, are the functions in your class. Member functions
+are as much a part of your class as the member variables. They determine what the objects of your 
+class can do.
+
+DECALRING A CLASS
+
+class Cat{
+    unsigned int itsAge;
+    unsigned int itsWeight;
+    Meow();
+}
+
+A WORD ON NAMING CONVENTIONS: 
+variables  : Cat, Rectangle, Employee
+functions : Meow(), ChaseMice()
+member variables: itsAge, itsWeight, itsSpeed
+
+DEFINING OBJECT: 
+"Cat Frisky;"
+
+Classes vs objects: An object is an individual instance of a class.
+
+ACCESSING CLASS MEMBERS:  use dot operator to acess the members of that object.
+"Frisky.Weight"
+"Frisky.Meow()"
+
+ASSIGN TO OBJECTS, NOT TO CLASSES: 
+Cat Frisky;
+Frisky.age = 5;
+
+IF YOU DONT DECLATE IT, YOUR CLASS WONT HAVE IT
+
+
+PRIVATE VS PUBLIC
+All members of a class--data and methods--are private by default. Private members
+can be acessed only within methods of the class itself. Public members can be acessed
+through any object of the class.
+
+class Cat
+{
+unsigned int  itsAge;
+unsigned int  itsWeight;
+Meow();
+};
+
+Cat Boots:
+Boots.itsAge = 5;  // ERROR
+
+
+class Cat
+{
+public:
+unsigned int  itsAge;
+unsigned int  itsWeight;
+Meow();
+};
+
+Cat Boots:
+Boots.itsAge = 5;  
+
+
+
+MAKE MEMBER DATA PRIVATE: you should keep the member data of class private.
+Therefore, you must create public functions known as accesssor methods to set
+and get the private member variables. 
+
+A public accessor method is a class member function used either to read the value
+of a private class member variable or to set its value.
+
+Accessor function enable you to seperate the details of how the data is stored from 
+how it is used. This enables you to change how the data is stored without having to 
+rewrite functions that use the data.
+
+
+IMPLEMENTING CLASS METHODS: 
+
+class Cat{
+    public:
+        int GetAge();
+        void SetAge(int age);
+        void Mewo();
+    private:
+        int itsAge;
+}
+
+int Cat::GetAge()
+{
+    return itsAge;
+}
+
+void Cat::SetAge(int age)
+{
+    itsAge = age;
+}
+
+void Cat::Meow()
+{
+    cout << "Meow\n";
+}
+
+
+CONSTRUCTIORS AND DESTRUCTORS
+The constructor is a class method with the same name as the class itself.
+
+Whenever you declare a constructor, you'll also want to declare a destructor.
+Destructor clean up after your object and free any memory you might have allocated.
+
+A destructor
+~Cat();
+
+DEFAULT CONSTRUCTORS AND DESTRUCTORS: they take no arguments and do nothing.
+
+DO use constructors to initialize your objects.
+DON'T give constructors or destructors a return value.
+DON'T give destructors parameters.
+
+const MEMBER FUNCTIONS: If you declare a class method const, you are promising that the
+method won't change the value of any of the members of the class. To declare a class method
+constant, put the keyword const after the parenthesis but before the semicolon.
+
+void SomeFunction() const;
+
+NOTE: Use const whenever possible. Declare member functions to be const whenever they
+should not change the object. This lets the compiler help you find errors. its faster
+and less expensive that doing it yourself.
+
+
+INTERFACE VS IMPLEMENTATION
+
+
+WHY USE COMPILER TO CATCH ERRORS?
+
+
+WHERE TO PUT CLASS DECLARATIONS AND METHOD DEFINITIONS: 
+The definitions must be in a file that the compiler can find. Most C++ compilers
+want that file to end with .cpp. 
+The convention is to put the declaration into what is called a header file, usually with name 
+ending with .h or .hpp .
+
+
+INLINE IMPLEMENTAION: Just as an inline function you can make class methods inline.
+
+inline int Cat::GetWeight(){
+    return itsWeight;
+}
+
+CLASSES WITH OTHER CLASSES AS MEMBER DATA
+
+STRUCTURES: A very close cousin of the class keyword is the keyword struct, which 
+is used to declare a structure. In C++, a structure is exactly like a class, except that its
+members are public by default. 
+
+WHY TWO KEYWORD DO THE SAME THING: This is accident of history. 

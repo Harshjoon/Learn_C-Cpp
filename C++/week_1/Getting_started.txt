@@ -1,0 +1,38 @@
+A program can be defined as either a set of written instructions created by a programmer or an executable piece of software.
+
+# C++ and Object oriented programming
+
+Four pillars of OOPS
+- encapsulation
+- data hiding
+- inheritance
+- polymorphism
+
+The property of being self-contained is called encapsulation.
+With encapsulation, one can achive data hiding.
+Data hiding is the highly valued characteristic that an object can be used without
+the user knowing or caring how it works internally.
+
+
+ENCAPSULATION: hiding away data and code, and seperating it out.
+
+INHERITANCE: allows child classes to inherit methods from parent classes.
+
+POLYMORPHISM: allows child class to define their own behaviour while still 
+    sharing meathods with parent class.
+
+C++ is superset of C. Any legal C program is a legal C++ program.
+
+ANSI STANDARD: Accredited Standards Commitee. An attempt to ensure C++ is
+portable.
+
+C++, more than other language, demands that the programmer design the program before 
+writing it.
+
+Most C++ compiler don't care what extension you give your source code.
+
+CREATING AN EXECUTABLE FILE:
+- Create source code filee, .cpp.
+- Compile the source code into a file with .obj extension.
+- Link onj file with any needed library to produce and executable program.
+

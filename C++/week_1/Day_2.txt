@@ -1,0 +1,8 @@
+this is incomplete document, complete it.
+
+
+PARTS OF A C++ PROGRAM 
+
+- COMMENTS
+
+- FUNCTION

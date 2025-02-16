@@ -1,0 +1,33 @@
+LOOPING
+
+looping with goto
+
+loop: counter++
+if( counter < 5 )
+    goto loop
+
+WHILE LOOPS
+
+CONTINUE AND BREAK
+
+DO WHILE LOOPS
+
+FOR LOOPS
+
+for(int i=0,j=0; i<3; i++,j++)
+for(;;) // a loop that never ends
+
+
+SWITCH STATEMENTS:
+switch (expression)
+{
+    case valueOne: statement;
+                    break;
+    case valueTwo: statement;
+                    break;
+    .
+    .
+    .
+    default:        statement;
+}
+

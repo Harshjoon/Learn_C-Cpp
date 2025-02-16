@@ -1,0 +1,77 @@
+EXPRESSIONS AND STATEMENTS
+
+Statements: A statement controls the sequence of execution, evaluates an expression,
+or does nothing.
+
+Whitespace: is generally ignored in statements.
+
+Blocks and Compound Statements: Any place you can put a single statement,
+you can put a compond statement, also called a block. A block begins with an
+opening braces.
+
+Expressions: Anything that evaluates to a value is an expression in C++.
+
+Operators: The assignment operator(=) causes the operand on the left side of 
+the assignment operator to have its value changed to the value on the site size. 
+
+Mathematical operators: +,-,*,/,%
+
+Integer division and modulus: 
+
+Increment and Decrement:
+
+Precedence: Every operator has a precedence value.
+
+Nesting Parentheses: For complex expressions, you might need to nest Parentheses
+one withing another.
+
+The Natuer of Truth:
+
+The if statement:
+
+INDENTATION STYLES:
+
+if( experssion){
+    statements
+}
+
+if( experssion)
+{
+    statements
+}
+
+if( experssion)
+    {
+    statements
+    }
+
+
+else statement:
+
+Advanced if statements:
+
+Using braces in Nested if Statements
+
+Logical Operators:
+    AND     &&
+    OR      ||
+    NOT     !
+
+RELATIONAL PRECEDENCE: Like all expressiong, they have a prevedence order
+that determines which relations are evaluated first.
+
+CONDITIONAL( TERNARY ) OPERATOR 
+The conditional operator (?:) is C++'s only ternary operator.
+
+(expression 1) ? (expression 2) : (expression 3)
+
+
+ 
+
+
+
+
+
+
+
+
