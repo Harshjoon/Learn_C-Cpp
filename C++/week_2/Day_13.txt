@@ -1,0 +1,50 @@
+POLYMORPHISM
+
+MULTIPLE INHERITANCE 
+It is possible to derive a new class from more than one base class.
+
+class Horse{
+
+}
+
+class Bird{
+
+}
+
+class Pegasus: public Horse, public Bird
+{
+
+}
+
+
+AMBIGUITY RESOLUTION
+both parent class might have same method. you will get compiler error.
+
+you can resolve this ambiguity with an explicit call to the function you wish to invoke.
+COLOR currentColor = pPeg->Horse::GetColor();
+
+VIRTUAL INHERITANCE 
+while calling horse and bird in pagasus, constructor of animal is called 2 times.
+This can be fixed by.
+
+class Horse: virtual public animal
+class Bird: virtual public animal 
+class Pegasus : public Horse, public Bird 
+
+
+Do use multiple inheritance when new class needs functions and features from more than
+one base class.
+Do use virtual inheritance when most class has one shared base class.
+Don't use multiple inheritance when single inheritance will do. 
+
+
+
+ABSTRACT DATA TYPES: represents a concept rather than an object. In C++, and ADT is
+always the base class to other classes, and it is not valud to make an instance of an ADT.
+
+
+PURE VIRTUAL FUNCTIONS 
+a virtual function is made pure by initializing it with zero.
+
+virtual void Draw() = 0;
+

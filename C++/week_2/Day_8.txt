@@ -2,3 +2,193 @@ POINTERS
 A pointer is a variable that holds a memory address.
 Each variable is located at a unique location in memory, known as its address.
 
+STORING THE ADDRESS IN A POINTER
+Even without knowing the specific address of a given variable, you can store 
+that address in a pointer.
+int *pAge = 0;
+This declare pAge to be a pointer to int. That is, pAge is declared to hold the
+address of an int.
+pAge is initialized to zero. A pointer whose value is zero is called a null pointer.
+A pointer that is not initialized is called a wild pointer. Wild pointer are dangerous.
+
+unsigned short int howOld = 50;
+unsigned short int * pAge = 0; // initialize a pointer
+pAge = &howOld; // put howOld's address in pAge.
+
+INDIRECTION: means accessing the value at the address held by a pointer. The pointer provide
+an indirect way to get the value held at that address.
+
+POINTER NAMES: Pointers can have any names that is legal for other variables. This notes follows the
+convention of namming all pointer with an initial p.
+
+INDIRECTION OPERATION
+Assign value of howOld to new variable yourAge.
+unsigned short int yourAge;
+yourAge = *pAge;
+
+NOTE: The indirection operator(*) is used in two distinct ways with pointer: declaration and dereference.
+When pointer is declared, the start indicates its a pointer, not a normal variable.
+
+*pAge = 5; // assign 5 to the value at pAge.
+
+POINTERS,ADDRESSES AND VARIABLES 
+Its important to distinguish between a pointer, the address that the pointer holds, and the value at the
+address held by the pointer.
+
+MANIPULATING DATA BY USING POINTER
+Once pointer is assigned, we can use pointer to access the data variable.
+
+int min(){
+    USHORT myAge;
+    USHORT * pAge = 0;
+    myAge = 5;
+    pAge = &myAge;
+    *page = 7;
+
+    myAge = 9;
+}
+
+
+EXAMINING THE ADDRESS: 
+
+DO use the indirection operator (*) to acess the data stored at the address in a pointer.
+DO initialize all pointers either to a valid address or to null.
+Do remember the differrence between the address in a pointer and the value at that address.
+
+
+WHY WOULD YOU USE POINTERS ?
+Pointers are used most often for:
+- Managing data on the free store.
+- Accessing class member data and functions.
+- Passing variables by reference to the function.
+
+THE STACK AND THE FREE STORE 
+Five areas of memory
+- Global name space
+- The Free store 
+- Registers 
+- Code space 
+- The stack 
+
+
+Local variables are on the stack, along with function parameters. The code is in code space, and global
+variables are in global name space. The registers are used for internal housekeeping functions, such as 
+keeping track of the top of stack and the instruction pointer.
+Just about all remaining memory is given over to the free store, which is sometimes referred to as the heap.
+
+You can think of the free store as a massive section of memory in which thousands of sequentially numbered
+cubbyholes lie waiting for you data.
+
+The stack is cleaned automatically when a function returns. All the local variables removed from the stack.
+
+
+
+NEW 
+you allocate memory on the free store by using "new" keyword. "new" is followed by the type of the object
+that you want to allocate so that the compiler knows how much memory is required. 
+
+To create an unsigned short on the free store, you might write.
+unsigned short int *pPointer;
+pPointer = new unsigned short int;
+
+or 
+
+unsigned short int *pPointer = new unsigned short int;
+
+pPointer now points to an unsigned short int on the free short. 
+
+*pPointer = 72
+
+DELETE 
+When you finished with your area of memory, you must call delete on the pointer. delete returns the memory
+to the free store.
+
+delete pPointer;
+
+calling delete again will crash your program.
+
+
+int main(){
+    int localVariable = 5;
+    int *pLocal = &localVariable;
+    int *pHeap = new int;
+    *pHeap = 7;
+    delete pHeap;
+    pHeap = new int;
+    *pHeap = 9;
+    delete pHeap;
+}
+
+
+MEMORY LEAK 
+another way you might inadvertently create a memory leak is by reassigning you pointer before 
+deleting the memory to which it points.
+
+unsigned short int * pPointer = new unsigned short int;
+*pPointer = 72;
+pPointer = new unsigned short int;
+*pPointer = 84;
+
+The orignal area in which the value 72 is noew held - is unavailable because of the pointer to that 
+area of memory has been reassigned. There is no way to access that orignal area of memory, nor there any
+way to free it before program ends.
+
+Correct way:
+
+unsigned short int *pPointer = new unsigned short int;
+*pPointer = 72;
+delete pPointer;
+pPointer = new unsigned short int;
+*pPointer = 84;
+
+CREATING OBJECTS ON THE FREE STORE 
+Just as you can create a pointer to an integer, you can create a pointer to any object. 
+
+Cat *pCat = new Cat;
+This calls the default constructor that takes no parameters.
+
+DELETING OBJECTS 
+When you call delete on a pointer to an object on the free store, that object's destructor is called
+before the memory is released. This gives you a chance to clean up.
+
+
+ACCESSING DATA MEMBERS 
+To access the GetAge member function.
+(*pRags).GetAge();
+
+parentheses are used to assure that pRags is dereferenced before GetAge() is accessed. This is cumbersome.
+C++ provides "points-to" operator -> 
+
+
+THE THIS POINTER 
+Every class member has a hidden parameter: the "this" pointer which points to the individual object. 
+
+
+STRAY OR DANGLING POINTERS 
+A stary pointer is created when you call delete on a pointer thereby freeing the memory that it points to
+and later try to use that pointer again without reassigning it.
+
+NOTE: stray pointer are often called wild pointers or dangling pointers.
+
+creating a stray pointer:
+
+int main(){
+    USHORT *pInt = new USHORT;
+    *pInt = 10;
+    delete pInt;
+    pInt = 0;
+}
+
+CONST POINTER 
+you can use "const" for pointers before the type, after the type, or in both places. 
+
+const int * pOne; // pOne is a pointer to a constant integer.
+int * const pTwo; // pTwo is a constant poninter to an integer.
+
+CONST THIS POINTERS 
+When you declare an object to be const, you are in effect declaring that the this pointer to a const object.
+
+Do protect object passed by reference with const if they should not be changed.
+Do pass by reference when the object can be changed.
+Do pass by value when small objects should not be changed.
+

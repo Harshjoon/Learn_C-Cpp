@@ -1,0 +1,113 @@
+REFERENCES 
+
+A reference is an alias. when you create a reference, you initialize it with the name of another object.
+From that moment on, the reference acts as an alternative name for the target, and anything you do to the 
+reference is really done to the target.
+
+int &rSomeRef = someInt;
+
+"rSomeRef" is a reference to an integer that is initialized to refer to someInt. 
+
+USING THE ADDRESS OF OPERATOR & ON REFRENCES 
+
+int main(){
+    int intOne;
+    int &rSomeRef = intOne;
+
+    intOne = 5;
+
+
+    int intTwo;
+    rSomeRef = intTwo;
+}
+
+WHAT CAN BE REFERENCED ?
+Any object can be referenced, including user-defined objects. You can reference to an object but not to
+a class.
+
+int & rIntRef = int; // wrong 
+
+
+NULL POINTERS AND NULL REFERENCES 
+A reference cannot be null, and a program with a reference to a null object is considered and invalid program.
+
+
+PASSING FUNCTION ARGUMENTS BY REFERENCE 
+functions have two limitions:
+- Arguments are passed by value.
+- The return statement can return only one value.
+
+Passing values to a function by reference can overcome both of these limitations. In C++, passing by
+reference is accomplished in two ways: using pointers and using references.
+The syntax is different but the net effect is the same. 
+
+
+MAKING SWAP WITH POINTERS 
+
+void swap( int *px, int *py)
+{
+    int temp = *px;
+    *px = *py;
+    *py = temp;
+}
+
+IMPLEMENTING SWAP WITH REFRENCES
+
+void swap(int &rx, int &ry)
+{
+    int temp = rx;
+    rx = ry;
+    ry = temp;
+}
+
+UNDERSTANDING FUNCTION HEADERS AND PROTOTYPES
+Using the function that take references is easier, and the code is easier to read.
+
+
+RETURNING MULTIPLE VALUES 
+
+
+RETURNING VALUES BY REFERENCE 
+
+
+typedef unsigned short USHORT;
+
+enum ERR_CODE {SUCCESS, ERROR}; // user defined data type 
+
+ERR_CODE Factor(USHORT, USHORT&, USHORT&);
+
+
+
+ERR_CODE Factor(USHORT n, USHORT &rSquared, USHORT &rCubed)
+{
+    if ( n > 20 )
+        return ERROR;
+    else{
+        rSquared = n*n;
+        rCubed = n*n*n;
+        return SUCCESS;
+    }
+}
+
+
+PASSING BY REFERENCE FOR EFFICIENCY
+Each time you pass an object into a function by value, a copy of the object is made. Each time you return
+an object from a function by value, another copy is made.
+
+WHEN TO USE REFERENCE AND WHEN TO USE POINTERS 
+References are cleaner and easier to use, and they do a better job of hiding information.
+
+Do pass parameters by reference whenever possible.
+Do return by reference whenever possible.
+Don't use pointers if reference will work.
+Do use const to protect references and pointers whenever possible.
+Don't return a reference to a local object.
+
+
+MIXING REFERENCES AND POINTERS 
+Its perfectly legal to declare both pointers and references in the same function parameter list.
+
+DONT RETURN A REFERENCE TO AN OBJECT THAT ISNT IN SCOPE
+
+
+RETURNING A REFERENCE TO AN OBJECT ON THE HEAP 

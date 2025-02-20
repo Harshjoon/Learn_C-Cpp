@@ -1,0 +1,69 @@
+INHERITANCE
+
+enum BREED { YORKIE, CAIRN, DANDIE, SHETLAND, DOBERMAN, LAB };
+
+class Mammal
+{
+    public:
+        Mammal();
+        !Mammal();
+
+        int GetAge() const;
+        void SetAge(int);
+        int GetWeight() const;
+        void SetWeight();
+
+        void Speak();
+        void Sleep();
+    
+    protected:
+        int itsAge;
+        int itsWeight;
+};
+
+class Dog: public Mammal
+{
+    public:
+        Dog();
+        ~Dog();
+
+        BREED GetBreed() const;
+        void SetBreed(BREED);
+
+    protected:
+        BREED itsBreed;
+}
+
+
+PRIVATE VS PROTECTED 
+Private members are not available to derived class.
+The Protected data members and functions are fully visible to derived classes, but
+are otherwise private.
+
+
+CONSTRUCTOR AND DESTRUCTOR 
+When derived object is initialized, its base constructor is called first.
+When derived is destroyed, its destructor is called first then parent destructor is called.
+
+
+PASSING ARGUMENTS TO THE BASE CONSTRUCTOR
+
+
+Dog();
+Dog(int age);
+Dog(int age, int weight);
+
+Dog::Dog():
+Mammal()
+itsBreed(YORKIE){
+
+}
+
+Dog::Dog(int age):
+Mammal(age),
+itsBreed(YORKIE){
+
+}
+
+
+-- COMPLETE THIS --

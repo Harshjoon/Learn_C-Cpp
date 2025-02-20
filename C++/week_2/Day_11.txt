@@ -1,0 +1,177 @@
+ARRAY 
+
+An array is a collection of data storage, each of which holds the same 
+type of data. 
+long LongArray[2];
+
+ARRAY ELEMENT
+You access each of the array elements by referring to an offset from the 
+array name. Array elements are counter from zero. 
+first array element is arrayName[0].
+
+iny main()
+{
+    int myArray[5];
+    int i;
+    for(i=0;i<5;i++)
+    {
+        cin >> myArray[i];
+    }
+    for(i=0;i<5;i++)
+    {
+        cout << myArray[i] << endl;
+    }
+}
+
+WRITING PAST THE END OF AN ARRAY 
+If you ask, compiler ignores the fact that there is no such elemnts. 
+
+FENCE POST ERROR 
+Its so common to write past the end of an array, that it has its own name.
+
+INITIALIZING ARRAYS 
+
+int IntegerArray[5] = {10,20,30,40,50};
+
+declares IntegerArray to be an array of 5 integers.
+
+int IntegerArray[] = {10,20,30,40,50};
+ 
+If you omit the size, an array just big enough to hold the initialization 
+is created. 
+
+To know the size of the array.
+
+const USHORT IntergerArrayLength;
+IntergerArrayLength = sizeof(IntegerArray)/sizeof(IntegerArray[0]);
+
+Do let the compiler set the size of initialized arrays.
+Don't write past the end of the array.
+
+DECLARING ARRAYS 
+
+USING CONSTS AND ENUMS IN ARRAYS 
+
+enum WeekDays {Sun, Mon, Tue,  Wed, Thu, Fri, Sat, DaysInWeek};
+
+int ArrayWeek[DaysInWeek] = {10,20,30,40,50,60,70};
+
+
+
+MULTIDIMENSIONAL ARRAY 
+
+SQUARE Board[8][8];
+
+INITIALIZING MULTIDIMENSIONAL ARRAYS
+
+int theArray[5][3];
+
+int theArray[5][3] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
+
+int theArray[5][3] = {
+    {1,2,3},
+    {4,5,6},
+    {7,8,9},
+    {10,11,12},
+    {13,14,15}
+}
+
+ARRAY OF POINTERS 
+
+int main(){
+    CAT * Family[500];
+    int i;
+    CAT *pCat;
+    for( i=0;i<500;i++)
+    {
+        pCat = new CAT;
+        pCat->SetAge(2*i+1);
+        Family[i] = pCat;
+    }
+}
+
+DECLARING ARRAYS ON THE FREE STORE 
+It is possible to put the entire array on the free store, also known an heap.
+
+CAT *Family = new CAT[100];
+
+A POINTER TO AN ARRAY VERSUS AN ARRAY OF POINTERS
+
+CAT FamilyOne[500];                 // an array of 500 cats
+CAT * FamilyTwo[500];               // an array of pointers 
+CAT * FamilyThree = new CAT[500];   // a pointer to array of 500 cats.
+
+
+DELETE ARRAYS ON THE FREE STORE 
+use 
+delete[]
+
+CHAR ARRAYS 
+
+char Greeting[] = {'H','e','l','l','o','\0'};
+
+\0 means termination of string.
+
+char Greeting[] = "Hello";
+
+STRCPY() AND STRNCPY()
+
+char String1[] = "No man is an island";
+char String2[80];
+strcpy(String2,String1);
+
+
+const int MaxLength = 80;
+char String1[] = "No man is an island";
+cahr String2[MaxLength+1];
+strncpy(String2,String1,MaxLength);
+
+
+STRING class
+
+ 
+
+
+
+
+LINKED LISTS AND OTHER STRUCTURES
+Arrays are much like tupperware. They are great containers, but they are of fixed size.
+If you pick a container too large, you waste space in your storage area. If too small, its 
+contents spill all over.
+
+Lists come in three fundamental forms.
+- Singly linked 
+- Doubly linked 
+- Trees 
+
+
+class Node
+{
+    public:
+        Node (CAT*);
+        !Node();
+
+        void SetNext(Node* node){itsNext = node};
+        Node* GetNext() const {return itsNext;}
+        CAT* GetCat() const {return itsCat;}
+        void Insert(Node *);
+
+    private:
+        CAT *itsCat;
+        Node *itsNext;
+}
+
+Node::Node(CAT* cat)
+itsCat(pCat),
+itsNext(0)
+{
+}
+
+Node::~Node()
+{
+    delete itsCat;
+    delete itsNext;
+}
+
+
+ARRAY CLASSES 

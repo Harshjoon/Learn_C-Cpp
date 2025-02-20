@@ -1,0 +1,115 @@
+ADVANCED FUNCTIONS 
+
+OVERLOAD MEMBER FUNCTIONS
+
+class Rectangle
+{
+    public:
+        // constructors
+        Rectangle(USHORT width, USHORT height);
+        ~Rectangle(){};
+
+        // overload DrawShape function
+        void DrawShape() const;
+        void DrawShape(USHORT aWidth, USHORT aHeight) const;
+
+}
+
+
+USING DEFAULT VALUES 
+Just as non-class function can have one or more default values, so can each member function of a class.
+
+CHOOSING BETWEEN DEFAULT VALUES AND OVERLOADED FUNCTIONS 
+use function overloading when:
+- There is no reasonable default value.
+- You need different algorithm.
+- You need to support variant types in your parameter list.
+
+
+THE DEFAULT CONSTRUCTOR 
+
+
+OVERLOADING CONSTRUCTORS
+
+
+INITIALIZING OBJECTS 
+
+
+THE COPY CONSTRUCTOR 
+The copy constructor is called every time a copy of an object is made.
+When you pass an object by value, either into a function or as a function's return value, a temporary
+copy of that object is made.
+
+
+class Cat{
+    public:
+        CAT();
+        CAT(const CAT &); // copy constructor
+        ~CAT();
+}
+
+OPERATOR OVERLOADING 
+C++ enables you to add these operators to your own classes as well.
+
+class Counter
+{
+    public:
+        Counter();
+        ~Counter();
+        USHORT GetItsVal() const {return itsVal;}
+        void SetItsVal(USHORT x ){itsVal = x};
+    private:
+        USHORT itsVal;
+}
+
+writing an increment function 
+
+class Counter
+     {
+        public:
+          Counter();
+          ~Counter(){}
+          USHORT GetItsVal()const { return itsVal; }
+          void SetItsVal(USHORT x) {itsVal = x; }
+          void Increment() { ++itsVal; }
+
+       private:
+          USHORT itsVal;
+    };
+
+OVERLOADING THE PREFIX OPERATOR 
+Prefix operator can be overloaded by declaring functions with the form.
+
+returnType Operator op (parameters)
+
+the ++ operator can be overloaded with the following syntax.
+
+void operator++ ()
+
+class Counter{
+    public:
+        Counter();
+        ~Counter();
+        USHORT GetItsVal() const {return itsVal;}
+        void operator++ (){++itsVal;}
+    private:
+}
+
+RETURNING TYPES IN OVERLOADED OPERATOR FUNCTIONS 
+
+RETURNING NAMELESS TEMPRORARIES 
+
+USING THE THIS POINTER 
+
+DIFFERENCE BETWEEN THE PREFIX AND POSTFIX 
+
+OPERATOR OVERLOADING: Binary operator 
+
+NOTE:
+- Do use operator overloading when it will clarify the program.
+- Don't create counter-intuitive operators. Do return an object the class from overload operators.
+
+THE ASSIGNMENT OPERATOR 
+
+CONVERSION OPERATORS
+
